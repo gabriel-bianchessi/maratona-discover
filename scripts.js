@@ -43,6 +43,7 @@ const Transaction = {
 
     App.reload()
   },
+  
 
   incomes() {
     let income = 0;
@@ -117,6 +118,16 @@ const DOM = {
     document
       .querySelector('#total-display')
       .innerHTML = Utils.formatCurrency(Transaction.total())
+    document
+      .querySelector('.card.total')
+      .classList
+      .remove(Utils.setTotalColor(Transaction.total() * -1))
+    document
+      .querySelector('.card.total')
+      .classList
+      .add(Utils.setTotalColor(Transaction.total()))
+
+    console.log(Utils.setTotalColor(Transaction.total()))
   },
 
   clearTransactions() {
@@ -153,6 +164,12 @@ const Utils = {
     })
 
     return signal + value
+  },
+
+  setTotalColor(value) {
+    const CSSclass = value > 0 ? "positive" : "negative"
+
+    return CSSclass
   }
 }
 

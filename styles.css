@@ -151,8 +151,13 @@ header {
   margin-top: 1rem;
 }
 
-.card.total {
+.card.total.positive {
   background: var(--green);
+  color: white;
+}
+
+.card.total.negative {
+  background: var(--red);
   color: white;
 }
 
